@@ -1,0 +1,225 @@
+/* Reset e estrutura */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(/assets/bkg.png);
+  background-size: cover; /* Faz a imagem cobrir toda a área */
+  background-repeat: no-repeat; /* Evita repetir a imagem */
+  background-position: center; /* Centraliza a imagem */
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-top: 60px;
+}
+
+
+header, footer {
+  text-align: center;
+}
+
+.fita2 img,
+.fita1 img {
+  width: 100%;
+  height: 85px;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  margin: 20px auto;
+  margin-top: 4px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Conteúdo principal */
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+/* Botões de horário */
+.hora {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.botoes-horario {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  
+}
+
+.botoes-horario button {
+  flex: 1 1 45%;
+  min-width: 100px;
+  padding: 10px;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+}
+
+
+
+
+.horarios-escondidos {
+  display: none; /* Esconde a div inteira */
+  width: 100%; /* Opcional: Garante que ela ocupe toda a largura */
+  margin-top: 10px; /* Adiciona um pequeno espaço acima */
+}
+
+
+
+
+.botoes-horario button.ativo {
+  background-color: red;
+}
+
+.botoes-horario button:hover {
+  background-color: red;
+  color: #f0f0f0;
+}
+
+/* Botões finais */
+.botoes-formulario {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  transition: background 0.3s ease;
+}
+
+/* CLASSE ESSENCIAL: Esconde o conteúdo por padrão */
+.conteudo-oculto {
+  display: none; 
+}
+
+/* Estilos para o dropdown (opcional, mas recomendado) */
+.lista-dropdown {
+  position: absolute; /* MUITO IMPORTANTE para sobrepor outros elementos */
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+  width: 100%; /* Ocupa a mesma largura do form-group/input (ajuste se necessário) */
+  background-color: white; /* Fundo branco ou da cor do seu formulário */
+  border: 1px solid #ccc;
+  border-top: none; /* Opcional: Para parecer que se conecta ao input */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto; /* Para rolagem se houver muitos nomes */
+  padding: 5px;
+}
+
+/* Estilo para os botões/nomes dentro da lista suspensa */
+.nome-clicavel {
+  display: block; /* Faz cada nome ocupar a linha inteira */
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  color: #333;
+  font-size: 1em;
+}
+
+.nome-clicavel:hover {
+  background-color: #f0f0f0;
+}
+
+/* Opcional: Adicione position: relative ao form-group se precisar que a lista-dropdown absoluta se baseie nele */
+.form-group {
+  position: relative; 
+  /* ... outros estilos de form-group ... */
+}
+.botoes-formulario button:hover{
+  background-color: red;
+  color: #f0f0f0;
+}
+
+.salvar,
+.cancelar {
+  flex: 1;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.salvar {
+  background-color: #007bff;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.cancelar {
+  background-color: white;
+  color: black;
+  transition: background 0.3s ease;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .botoes-horario button {
+    flex: 1 1 100%;
+  }
+
+  .botoes-formulario {
+    flex-direction: column;
+  }
+
+  .salvar,
+  .cancelar {
+    width: 100%;
+  }
+
+
+}

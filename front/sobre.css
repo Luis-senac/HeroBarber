@@ -1,0 +1,145 @@
+/* reset básico */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.titulo {
+  width: 35%;
+}
+
+body {
+  background-image: url(/assets/bkg-sobre.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: whitesmoke;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.text {
+  padding: 40px;
+  width: 50%;
+}
+
+p {
+  padding-left: 30px;
+  font-size: 25px;
+  text-align: justify;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+.imagens {
+  gap: 10px;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+img {
+  width: 350px;
+  border-radius: 10px;
+  height: auto;
+  margin-bottom: 50px;
+}
+/* RESPONSIVIDADE */
+
+/* CELULARES */
+
+@media (max-width: 500px) {
+  .topo {
+    width: 100%;
+    height: auto;
+  }
+
+  .topo img {
+    width: 250px;
+  }
+
+  .conteudo {
+    width: 100%;
+    margin: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  p {
+    width: 100%;
+    font-size: 15px;
+    justify-content: center;
+    padding: 0;
+    text-align: justify;
+  }
+
+  .text {
+    width: 80%;
+    padding: 0;
+    margin-bottom: 40px;
+  }
+
+  .imagens {
+    width: 100%;
+  }
+
+  img {
+    margin: 0;
+    width: 80%;
+    margin-bottom: 50px;
+  }
+}
+
+/* tablets */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .titulo {
+    width: 80%;
+    margin: 0;
+  }
+
+  .text{
+    width: 80%;
+    padding: 0;
+  }
+  .conteudo {
+    width: 100%;
+    margin: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  p {
+    width: 100%;
+    font-size: 25px;
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  .imagens{
+    width: 80%;
+    margin-top: 60px;
+  }
+
+  img{
+    width: 80%;
+  }
+}

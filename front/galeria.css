@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* ===== FUNDO BORRADO ===== */
+.fundo-borrado {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/assets/bkg2.jpg") no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(3px);
+  z-index: -2; /* fica atrás de tudo */
+}
+
+/* ===== ESCURECER O FUNDO ===== */
+.fundo-borrado::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45); /* AJUSTE AQUI A ESCURIDÃO */
+  z-index: -1; /* acima do fundo, mas atrás do conteúdo */
+  pointer-events: none;
+}
+
+/* ===== CONTEÚDO ===== */
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  gap: 50px;
+  z-index: 1;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideIn 1s forwards ease-out;
+}
+
+.title img {
+  max-width: 90%;
+  height: auto;
+}
+
+.corte {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.corte img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.corte img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px white;
+}
+
+/* ===== MODAL ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.modal-img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 12px;
+  animation: zoomIn 0.4s ease;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.modal-img:hover {
+  transform: scale(1.03);
+}
+
+.fechar {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.fechar:hover {
+  color: #ffffff;
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ===== FUNDO BORRADO ESTÁVEL ===== */
+.fundo-borrado {
+  position: fixed;
+  inset: 0;
+  background-image: url("/assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Mantém o fundo sólido e uniforme */
+  transform: scale(1.05); /* evita linhas quebradas */
+  filter: blur(6px);
+  z-index: -2;
+}
+
+/* Camada escura uniforme por cima */
+.fundo-borrado::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* escuridão sólida sem falhas */
+  z-index: -1;
+}
+

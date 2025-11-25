@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração - Status de Agendamentos</title>
+    <link rel="stylesheet" href="/front/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <img src="/assets/ADIMINISTRA-O-26-09-2025 (1).png" alt="ADMINISTRAÇÃO" class="titulo-img">
+    </header>
+
+    <hr class="divisor">
+
+    <main>
+        <section class="calendario-status">
+            <h2 class="subtitulo">Status dos Próximos Meses:</h2>
+            <div class="calendario-modulo" id="calendario-dinamico">
+                <div class="header-calendario">
+                    <button id="btn-anterior" type="button" class="btn-nav-cal">&lt;</button>
+                    <h3 id="mes-ano-titulo" class="calendario-header-mes"></h3>
+                    <button id="btn-proximo" type="button" class="btn-nav-cal">&gt;</button>
+                </div>
+                <table class="calendario">
+                    <thead>
+                        <tr>
+                            <th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th><th>Dom</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpo-calendario"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="agendamentos-lista">
+            <h2 class="subtitulo">Agendamentos Detalhados:</h2>
+            <div class="lista-visivel" id="lista-agendamentos"></div>
+
+            <nav class="acoes-lista">
+                <a href="#" id="btn-ver-mais" class="btn-mais">ver mais</a>
+                <a href="home.html" class="btn-home">Voltar ao Home</a>
+            </nav>
+        </section>
+    </main>
+</div>
+
+
+<div id="edit-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h3 id="modal-titulo">Editar Status do Dia: <span id="modal-data"></span></h3>
+        
+        <div class="modal-body">
+            <label for="status-select">Status:</label>
+            <select id="status-select">
+                <option value="padrao">Padrão</option>
+                <option value="feito">Feito (Verde)</option>
+                <option value="pendente">Pendente (Amarelo)</option>
+                <option value="negado">Negado (Vermelho)</option>
+            </select>
+            
+            <p class="agendamentos-texto">Agendamentos:</p>
+            <div id="agendamentos-do-dia">
+                <p>Nenhum agendamento encontrado.</p>
+            </div>
+
+            <button id="btn-salvar-status" class="btn-modal">Salvar Status</button>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="/js.front/api.js"></script>
+<script src="/js.front/admin.js"></script>
+</body>
+</html>

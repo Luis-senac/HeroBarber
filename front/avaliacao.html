@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Avaliações</title>
+  <link rel="stylesheet" href="avaliacao.css">
+</head>
+<body class="fade-in">
+  <header>
+    <img src="/assets/nos-avalie.png" alt="Nos Avalie!" class="titulo" />
+
+    <div class="estrelas" id="rating" aria-label="Avaliação">
+      <span data-value="1" role="radio" aria-checked="false" tabindex="0">★</span>
+      <span data-value="2" role="radio" aria-checked="false" tabindex="0">★</span>
+      <span data-value="3" role="radio" aria-checked="false" tabindex="0">★</span>
+      <span data-value="4" role="radio" aria-checked="false" tabindex="0">★</span>
+      <span data-value="5" role="radio" aria-checked="false" tabindex="0">★</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="campo">
+      <input type="text" id="comentario" placeholder="Digite sua avaliação aqui..." autocomplete="off" />
+      <p id="mensagem" role="status" aria-live="polite"></p>
+    </div>
+  </main>
+
+  <footer></footer>
+
+  <script src="/js.front/avaliacao.js"></script>
+</body>
+</html>

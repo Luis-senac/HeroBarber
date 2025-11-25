@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Administração</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <header>
+    <img src="/assets/ADIMINISTRA-O-26-09-2025 (1).png" alt="Administração">
+  </header>
+
+  <main>
+    <form id="formLogin">
+      <input type="email" id="email" name="email" placeholder="Digite seu e-mail de Administrador" required>
+
+      <div class="senha-container">
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+        <button type="button" id="toggleSenha" class="btn-ver-senha" aria-label="Mostrar ou ocultar senha">
+          <div class="icone-fundo">
+            <img id="iconeSenha" src="/assets/olho-fechado.png" alt="Ver senha">
+          </div>
+        </button>
+      </div>
+
+      <button type="submit" class="btn-entrar">Entrar</button>
+      <p id="mensagemErro" class="mensagem-erro" style="display:none;"></p>
+    </form>
+  </main>
+
+  <script>
+    // Mostrar / Ocultar senha
+    const senhaInput = document.getElementById("senha");
+    const toggleBtn = document.getElementById("toggleSenha");
+    const iconeSenha = document.getElementById("iconeSenha");
+
+    toggleBtn.addEventListener("click", () => {
+      const mostrando = senhaInput.type === "text";
+      senhaInput.type = mostrando ? "password" : "text";
+      iconeSenha.src = mostrando
+        ? "/assets/olho-fechado.png"
+        : "/assets/olho-aberto.webp";
+    });
+
+    // Lista de emails válidos
+    const emailsValidos = [
+      "carlosaaf2016@gmail.com",
+      "caiomarolaferreiravieira@hotmail.com",
+      "emanuelalmeidasilv4@gmail.com",
+      "giftc569@gmail.com",
+      "senacluis658@gmail.com",
+      "joaopedroabrao8@gmail.com",
+      "gustavo.corporate.2008.03.10@gmail.com"
+    ];
+
+    // Login
+    document.getElementById("formLogin").addEventListener("submit", function(e){
+      e.preventDefault();
+      const emailDigitado = document.getElementById("email").value.trim().toLowerCase();
+      const mensagemErro = document.getElementById("mensagemErro");
+
+      if (emailsValidos.includes(emailDigitado)) {
+        // Redireciona para admin.html se email existe
+        window.location.href = "admin.html";
+      } else {
+        mensagemErro.textContent = "E-mail não cadastrado! Verifique e tente novamente.";
+        mensagemErro.style.display = "block";
+        // Animação de shake no input
+        const emailInput = document.getElementById("email");
+        emailInput.classList.add("shake");
+        setTimeout(() => emailInput.classList.remove("shake"), 500);
+      }
+    });
+  </script>
+</body>
+</html>

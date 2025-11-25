@@ -1,0 +1,222 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("/assets/pxfuel2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  padding-bottom: 20px;
+}
+
+/* Cabeçalho */
+header img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+/* Unidades */
+.unidades {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  padding: 20px;
+}
+
+.unit-card1
+ {
+  width: 100%;
+  max-width: 550px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.unit-card1:hover
+ {
+  transform: scale(0.95);
+  filter: brightness(1.2);
+  box-shadow: 0 0 15px rgb(255, 255, 255);
+}
+
+/* Logo centralizada */
+.logo-street {
+  display: block;
+  max-width: 250px;
+  height: auto;
+  margin: 30px auto;
+  width: 90%;
+  border-radius: 490px;
+}
+
+/* Contatos */
+.contatos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 0 auto 40px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.botao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  color: black;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.botao:hover {
+  background: #f0f0f0;
+  transform: scale(1.03);
+}
+
+.icone {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.avaliacao-container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 20px;
+  border-radius: 15px;
+  margin: 0 auto 40px;
+  width: 90%;
+  max-width: 400px;
+
+  color: white; /* texto branco */
+  border: none; /* tira a borda */
+  font-weight: bold; /* texto em negrito */
+}
+.avaliacao-container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 20px;
+  border-radius: 15px;
+  margin: 0 auto 40px;
+  width: 90%;
+  max-width: 400px;
+
+  color: white; /* texto branco */
+  border: none; /* tira a borda */
+  font-weight: bold; /* texto em negrito */
+}
+
+/* 🔹 BOTÃO (letra branca + botão preto) */
+.avaliacao-container button {
+  background-color: black; /* botão preto */
+  color: white; /* texto branco */
+  border: none; /* remove borda */
+  padding: 10px 20px; /* espaço interno */
+  border-radius: 8px; /* cantos arredondados */
+  cursor: pointer; /* cursor tipo “mãozinha” */
+  font-weight: bold;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  
+}
+
+/* Efeito ao passar o mouse */
+.avaliacao-container button:hover {
+  background-color: #333; /* preto mais claro no hover */
+}
+
+.avaliacao-texto {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* 🔹 ESTRELAS */
+.estrelas input {
+  display: none;
+}
+
+.estrelas label {
+  font-size: 25px;
+  color: gold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.estrelas label:hover {
+  transform: scale(1.2);
+}
+
+/* RESPONSIVIDADE */
+
+/* Tablets */
+@media (max-width: 900px) {
+  header img {
+    max-width: 95%;
+  }
+  .unit-card1,
+  .unit-card2 {
+    max-width: 300px;
+  }
+  .logo-street {
+    max-width: 220px;
+  }
+}
+
+
+
+
+
+/* Celulares grandes */
+@media (max-width: 600px) {
+  .unidades {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .unit-card1,
+  .unit-card2 {
+    max-width: 90%;
+  }
+  .logo-street {
+    max-width: 180px;
+  }
+  .botao {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Celulares pequenos */
+@media (max-width: 400px) {
+  .avaliacao-texto {
+    font-size: 14px;
+  }
+  .estrelas label {
+    font-size: 22px;
+  }
+  .logo-street {
+    max-width: 150px;
+  }
+  .botao span {
+    font-size: 13px;
+  }
+}

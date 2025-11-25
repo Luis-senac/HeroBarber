@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Loja - Street Barber</title>
+    <link rel="stylesheet" href="loja.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header>
+        <div class="sidebar">
+            <img src="/assets/logo.png" alt="Logo da Minha Loja" class="logo-img">
+            <h1>STREET BARBER</h1>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#novidades">NOVIDADES</a></li> 
+                    <li><a href="#">CAMISETAS</a></li>
+                    <li><a href="#calcas">CALÇAS & BERMUDAS</a></li>
+                    <li><a href="#">COLEÇÕES</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="promo-banner">
+             <img src="/assets/DESIGN-MODA-ARTE.png" alt="promo-banner">
+        </section>
+
+        <section id="novidades" class="product-gallery">
+            <h2>LANÇAMENTOS DA SEMANA</h2>
+            <div class="product-grid">
+
+                <div class="product-card star-detail">
+                    <img src="/assets/200706-noite-1.png" alt="MORTE-NOITE">
+                    <button class="favorite-btn" data-favorito="false">♡</button> 
+                    <h3>MORTE-NOITE</h3>
+                    <p class="price">R$ 89,90</p>
+                </div>
+                
+                <div class="product-card custom-tag">
+                    <img src="/assets/230047----CALCA---2-.webp" alt="CALÇA-JENS-PRETA">
+                    <button class="favorite-btn" data-favorito="false">♡</button> 
+                    <h3>CALÇA JENS PRETA</h3>
+                    <p class="price">R$ 169,90</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="/assets/230018---CALCA---02.webp" alt="CALÇA-JENS">
+                    <button class="favorite-btn" data-favorito="false">♡</button> 
+                    <h3>CALÇA JENS</h3>
+                    <p class="price">R$ 139,90</p>
+                </div>
+
+            </div>
+        </section>
+        
+        <section class="product-gallery">
+            <h2>MAIS VENDIDOS</h2>
+            <div class="product-grid">
+                
+                <div class="product-card on-sale">
+                    <img src="/assets/200706-noite-1.png" alt="MORTE-NOITE">
+                    <button class="favorite-btn" data-favorito="false">♡</button>
+                    <h3>MORTE-NOITE</h3>
+                    <p class="original-price">R$ 89,90</p> 
+                    <p class="price sale-price">R$ 69,90</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="/assets/230047----CALCA---2-.webp" alt="CALÇA-JENS-PRETA">
+                    <button class="favorite-btn" data-favorito="false">♡</button>
+                    <h3>CALÇA JENS PRETA</h3>
+                    <p class="price">R$ 99,90</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="/assets/210206---branco--1.png" alt="CAMISETA-BRANCA-CUPIDO">
+                    <button class="favorite-btn" data-favorito="false">♡</button>
+                    <h3>CAMISETA BRANCA CUPIDO</h3>
+                    <p class="price">R$ 89,90</p>
+                </div>
+    
+                <div class="product-card">
+                    <img src="/assets/CAMISETA-CASINO.png" alt="CAMISETA-CASINO">
+                    <button class="favorite-btn" data-favorito="false">♡</button>
+                    <h3>CAMISETA CASINO</h3>
+                    <p class="price">R$ 109,90</p>
+                </div>
+
+            </div>
+        </section>
+        
+        <section id="calcas" class="product-gallery">
+            <h2>CALÇAS & BERMUDAS</h2>
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <img src="/assets/230047----CALCA---2-.webp" alt="CALÇA-JENS-PRETA">
+                    <button class="favorite-btn" data-favorito="false">♡</button>
+                    <h3>CALÇA CARGO DARK</h3>
+                    <p class="price">R$ 159,90</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="/assets/230018---CALCA---02.webp" alt="CALÇA-JENS">
+                    <button class="favorite-btn" data-favorito="false">♡</button>
+                    <h3>CALÇA JEANS STREET</h3>
+                    <p class="price">R$ 129,90</p>
+                </div>
+                
+                <div class="product-card">
+                    <img src="/assets/240018_frente.webp" alt="BERMUDA-BRANCA">
+                    <button class="favorite-btn" data-favorito="false">♡</button>
+                    <h3>BERMUDA BRANCA</h3>
+                    <p class="price">R$ 149,90</p>
+                </div>
+                <div class="product-card">
+                    <img src="/assets/240063_frente.webp" alt="CALÇA-JENS-PRETA">
+                    <button class="favorite-btn" data-favorito="false">♡</button>
+                    <h3>BERMUDA JENS PRETA</h3>
+                    <p class="price">R$ 149,90</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Street Barber. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="/js.front/script.js"></script> 
+
+</body>
+</html>

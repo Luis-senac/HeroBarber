@@ -1,0 +1,321 @@
+/* Importação da fonte (Deixe esta linha APENAS se não quiser usar a tag <link> no HTML) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Estilos globais para a página */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+/* --- BARRA LATERAL (SIDEBAR) --- */
+header {
+    display: flex;
+}
+
+.sidebar {
+    background-color: #000;
+    color: white;
+    padding: 20px;
+    width: 250px;
+    height: 100vh;
+    position: fixed; 
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-right: 1px solid #333;
+    z-index: 10; /* Garante que a sidebar fique na frente */
+}
+
+.logo-img {
+    max-width: 100%;
+    height: 230.424px;
+    margin-bottom: 20px;
+    border-radius: 100px;
+    width: 196.821px;
+}
+
+.sidebar h1 {
+    margin: 0;
+    font-size: 1.5em;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.nav-menu {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    margin-bottom: 15px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #888;
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
+main {
+    /* CORREÇÃO DE DESALINHAMENTO: Empurra o main para a direita */
+    margin-left: 250px; 
+    padding: 20px;
+    position: relative; 
+    z-index: 1;
+}
+
+.promo-banner {
+    text-align: center;
+    margin-bottom: 40px; 
+    padding: 30px 20px; 
+    min-height: 250px; 
+
+    /* PROPRIEDADES DA IMAGEM DE FUNDO: */
+    /* ⚠️ VERIFIQUE SE O CAMINHO DA IMAGEM ESTÁ CORRETO ⚠️ */
+    background-image: url('/assets/pxfuel2.png'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    
+    background-color: rgba(0, 0, 0, 0.4); 
+    background-blend-mode: overlay; 
+    border-radius: 10px; 
+}
+
+.promo-banner img {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2; 
+}
+
+
+/* Centraliza os títulos H2 das galerias */
+.product-gallery {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.product-gallery h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/* Layout dos cards de produto */
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* --- ESTILO INDIVIDUAL DO CARD --- */
+.product-card {
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center; 
+    width: 200px;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.product-card h3 {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1.2; 
+}
+
+/* --- PREÇOS E DESCONTOS --- */
+.product-card .price {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #fff;
+    margin: 5px 0 10px;
+}
+
+.product-card .original-price {
+    font-size: 0.9em;
+    color: #888;
+    text-decoration: line-through;
+    margin: 0;
+    line-height: 1;
+}
+
+.product-card .sale-price {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #ff0000;
+    margin-top: 5px;
+}
+
+.product-card.on-sale::before {
+    content: 'SALE';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #ff0000;
+    color: white;
+    padding: 3px 6px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 3px;
+    z-index: 10;
+}
+
+/* --- DETALHE DA ESTRELA --- */
+.product-card.star-detail {
+    border: 2px solid #ffcc00;
+}
+
+.product-card.star-detail::before {
+    content: '⭐';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.5em;
+    padding: 5px 8px;
+    background-color: #000;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+/* --- DETALHE DA TAG PERSONALIZADA (LIMITED DROP) --- */
+.product-card.custom-tag::after {
+    content: 'LIMITED DROP';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #887843;
+    color: #000;
+    padding: 5px 10px;
+    font-size: 0.7em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transform: rotate(-5deg);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+/* --- BOTÃO FAVORITAR (Corrigido para usar a fonte do card) --- */
+.favorite-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 5;
+    /* Usando font-family para garantir que o '♡' e '♥' apareçam */
+    font-family: inherit; 
+    
+    color: #fff; 
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+.favorite-btn:hover {
+    opacity: 1;
+}
+
+/* Coração Ativado (Cheio e Vermelho) */
+.favorite-btn[data-favorito="true"] {
+    color: #ff0055; 
+    opacity: 1;
+    transform: scale(1.1);
+    animation: pulsar 0.4s ease-out; 
+}
+
+/* Efeito de Pulsar/Aparecer (Animação) */
+@keyframes pulsar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); } 
+    100% { transform: scale(1.1); } 
+}
+
+/* --- RODAPÉ --- */
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    margin-left: 250px; 
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    main, footer {
+        margin-left: 0;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0;
+    }
+
+    .sidebar h1 {
+        display: none;
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+    
+    .product-grid {
+        justify-content: center;
+    }
+}

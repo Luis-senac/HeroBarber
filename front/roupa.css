@@ -1,0 +1,137 @@
+/* RESET BÁSICO */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: serif;
+  color: aliceblue;
+}
+
+html,body {
+  height: 100%;
+}
+
+body {
+  background-image: url(/assets/fundo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; /* mantém a imagem fixa */
+  background-position: center; /* centraliza */
+}
+
+/* HEADER */
+.img img{
+  display: flex;
+  align-items: center;
+  height: auto;
+  flex-wrap: wrap; /* evita quebras feias no mobile */
+  padding-left: 30px;
+  width: 700px;
+}
+
+/* MAIN */
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+  gap: 2rem;
+}
+
+/* CONTEÚDO */
+.conteudo {
+  flex: 1 1 300px; /* ocupa espaço proporcional */
+}
+
+p {
+  font-size: 55px;
+  line-height: 1.4;
+  color: aliceblue;
+}
+
+/* IMAGEM */
+.img2 img {
+  border-radius: 30px;
+  width: 25rem;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ========================= */
+/* RESPONSIVIDADE COM MEDIA  */
+/* ========================= */
+
+/* Celulares */
+@media (max-width: 450px) {
+  header {
+    justify-content: center;
+    text-align: center;
+    height: auto;
+    width: 100%;
+  }
+
+  .img img{
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: auto;
+  }
+
+  main {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .conteudo {
+    justify-content: center;
+    height: auto;
+    width: 100%;
+  }
+
+  p {
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .img2 img {
+    border-radius: 14px;
+    width: 100%;
+  }
+}
+
+/* TABLETS */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  header {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: auto;
+  }
+
+  .title {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: auto;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  .conteudo {
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  p {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    font-size: 23px;
+  }
+}
