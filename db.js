@@ -11,3 +11,7 @@ const db = new Sequelize(process.env.DATABASE_URL, {
   logging: false,
 });
 
+// AQUI está a correção importante
+export default db;
+
+

@@ -6,10 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const campoHorario = document.getElementById("horarioSelecionado");
   const erroProfissional = document.getElementById("erroProfissional");
 
+  // Detecta ambiente (localhost ou Render)
+  const API_BASE =
+    window.location.hostname === "localhost"
+      ? "http://localhost:3000"
+      : "https://streetbarber.onrender.com";
+
   // Botão "ver mais" para horários adicionais
   btnVerMais.addEventListener("click", () => {
     horariosAdicionais.classList.toggle("horarios-escondidos");
-    btnVerMais.textContent = horariosAdicionais.classList.contains("horarios-escondidos") ? "ver mais" : "ver menos";
+    btnVerMais.textContent = horariosAdicionais.classList.contains(
+      "horarios-escondidos"
+    )
+      ? "ver mais"
+      : "ver menos";
   });
 
   // Seleção de horário
@@ -37,19 +47,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("email").value.trim();
     const profissional = document.getElementById("profissional").value.trim();
     const horarioSelecionado = campoHorario.value.trim();
-    const data_agendamento = document.getElementById("data").value; // <- capturando a data
+    const data_agendamento = document.getElementById("data").value;
 
-    if (!nome || !email || !profissional || !horarioSelecionado || !data_agendamento) {
+    if (
+      !nome ||
+      !email ||
+      !profissional ||
+      !horarioSelecionado ||
+      !data_agendamento
+    ) {
       alert("Por favor, preencha todos os campos.");
       return;
     }
 
     try {
-      const res = await fetch("/api/agendamentos", {
+      const res = await fetch(`${API_BASE}/api/agendamentos`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nome, email, profissional, horarioSelecionado, data_agendamento }),
+        body: JSON.stringify({
+          nome,
+          email,
+          profissional,
+          horarioSelecionado,
+          data_agendamento,
+        }),
       });
+
       const data = await res.json();
 
       if (res.ok) {

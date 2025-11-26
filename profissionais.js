@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
-import sequelize from "./db.js";
+import db from "./db.js";
 
-const Profissional = sequelize.define("profissionais", {
+const Profissional = db.define("profissionais", {
   nome: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -9,3 +9,4 @@ const Profissional = sequelize.define("profissionais", {
 });
 
 export default Profissional;
+
