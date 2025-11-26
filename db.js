@@ -6,13 +6,13 @@ dotenv.config();
 
 // Cria uma nova instância de conexão com o banco de dados
 const db = new Sequelize(
-  , // nome do banco
-  , // Usuário administrador do banco
-  , // senha do banco
+    process.env.NAME, // nome do banco
+    process.env.USER, // Usuário administrador do banco
+    process.env.PASS, // senha do banco
   {
-    host: , // onde o banco está
+    host: process.env.HOST, // onde o banco está
     dialect: "postgres", // O tipo do banco
-    port: Number(),
+    port: Number(process.env.PORT),
     dialectOptions: {
       ssl: { require: true, rejectUnauthorized: false },
     },

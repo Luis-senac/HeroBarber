@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import path from "path";
 import { fileURLToPath } from "url";
 import { router, testarConexao } from "./main.js";
+import db from "./db.js"
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -18,6 +19,6 @@ app.use("/api", router);
 
 const PORT = 3000;
 app.listen(PORT, async () => {
-  console.log(`✅ Servidor rodando em http://localhost:${PORT}`);
+  console.log(`✅ Servidor rodando em http://postgresql://dpg-d4j0k6fdiees738eni30-a.oregon-postgres.render.com${PORT}`);
   await testarConexao();
 });
