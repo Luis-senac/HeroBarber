@@ -8,15 +8,28 @@ import db from "./db.js";
 import Profissional from "./profissionais.js";
 
 const app = express();
+
+// CORREÇÃO IMPORTANTE
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// PASTA DO FRONTEND
+const frontPath = path.join(__dirname, "front");
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(__dirname));
+// SERVIR FRONTEND
+app.use(express.static(frontPath));
+
+// API (backend)
 app.use("/api", router);
+
+// QUANDO O USUÁRIO ACESSAR "/", ENVIA O index.html
+app.get("*", (req, res) => {
+  res.sendFile(path.join(frontPath, "index.html"));
+});
 
 // Seed dos profissionais
 const seedProfissionais = async () => {
@@ -27,7 +40,6 @@ const seedProfissionais = async () => {
   console.log("👨‍🔧 Profissionais criados ou já existentes.");
 };
 
-// Render controla a PORT automaticamente
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, async () => {
@@ -37,5 +49,5 @@ app.listen(PORT, async () => {
   await db.sync({ alter: true });
   await seedProfissionais();
 
-  console.log("🟩 Backend funcionando!");
+  console.log("🟩 Backend funcionando e front servindo!");
 });
