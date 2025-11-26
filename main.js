@@ -1,71 +1,65 @@
 import express from "express";
-import mysql from "mysql2/promise";
+import Profissional from "./profissionais.js";
+import Agendamento from "./agendamentos.js";
+import sequelize from "./db.js";
 
 export const router = express.Router();
 
-// Configuração do MySQL
-const pool = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "",        // Ajuste para seu MySQL
-  database: "streetbarber_db",
-});
-
-// Teste de conexão
+// TESTAR CONEXÃO
 export async function testarConexao() {
   try {
-    const connection = await pool.getConnection();
-    console.log("✅ Conectado ao MySQL com sucesso!");
-    connection.release();
+    await sequelize.authenticate();
+    console.log("✅ Conectado ao PostgreSQL Render!");
   } catch (err) {
-    console.error("❌ Erro ao conectar ao MySQL:", err.message);
+    console.error("❌ ERRO ao conectar ao PostgreSQL:", err.message);
   }
 }
 
-// GET /api/agendamentos
+// ROTAS ----------------------------------------------
+
+// GET /agendamentos
 router.get("/agendamentos", async (req, res) => {
   try {
-    const [rows] = await pool.query(
-      `SELECT a.id, a.nome_cliente, a.email_cliente, a.horarioSelecionado, 
-              DATE_FORMAT(a.data_agendamento, '%d/%m/%Y') AS data, a.status, p.nome AS profissional 
-       FROM agendamentos a 
-       JOIN profissionais p ON a.profissional_id = p.id
-       ORDER BY a.data_agendamento ASC`
-    );
-    res.json(rows);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+    const agendamentos = await Agendamento.findAll({
+      include: [{ model: Profissional }],
+      order: [["data_agendamento", "ASC"]],
+    });
+
+    res.json(agendamentos);
+  } catch (erro) {
+    res.status(500).json({ error: erro.message });
   }
 });
 
-// POST /api/agendamentos
+// POST /agendamentos
 router.post("/agendamentos", async (req, res) => {
-  const { nome, email, profissional, horarioSelecionado, data_agendamento } = req.body;
+  const { nome, email, profissional, horarioSelecionado, data_agendamento } =
+    req.body;
 
   if (!nome || !email || !profissional || !horarioSelecionado || !data_agendamento) {
     return res.status(400).json({ error: "Dados incompletos" });
   }
 
   try {
-    // Obter ID do profissional
-    const [profissionalRows] = await pool.query(
-      "SELECT id FROM profissionais WHERE nome = ?",
-      [profissional]
-    );
+    const profissionalEncontrado = await Profissional.findOne({
+      where: { nome: profissional },
+    });
 
-    if (profissionalRows.length === 0)
+    if (!profissionalEncontrado) {
       return res.status(400).json({ error: "Profissional não encontrado" });
+    }
 
-    const profissional_id = profissionalRows[0].id;
-
-    // Inserir no banco incluindo data_agendamento
-    await pool.query(
-      "INSERT INTO agendamentos (nome_cliente, email_cliente, profissional_id, horarioSelecionado, data_agendamento, status) VALUES (?, ?, ?, ?, ?, ?)",
-      [nome, email, profissional_id, horarioSelecionado, data_agendamento, "pendente"]
-    );
+    await Agendamento.create({
+      nome_cliente: nome,
+      email_cliente: email,
+      profissional_id: profissionalEncontrado.id,
+      horarioSelecionado,
+      data_agendamento,
+      status: "pendente",
+    });
 
     res.json({ message: "Agendamento salvo com sucesso!" });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  } catch (erro) {
+    res.status(500).json({ error: erro.message });
   }
 });
