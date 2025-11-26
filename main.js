@@ -5,6 +5,9 @@ import Agendamento from "./agendamento.js"; // AGORA FUNCIONA
 
 export const router = express.Router();
 
+Agendamento.belongsTo(Profissional, { foreignKey: "profissional_id" });
+Profissional.hasMany(Agendamento, { foreignKey: "profissional_id" });
+
 // TESTAR CONEXÃO
 export async function testarConexao() {
   try {
