@@ -1,15 +1,26 @@
-const API_BASE = "/api";
+// Detecta automaticamente se está no localhost ou no Render
+const API_BASE =
+  window.location.hostname === "localhost"
+    ? "http://localhost:3000/api"
+    : "https://streetbarber.onrender.com/api";
 
+// GET - Buscar agendamentos
 export async function fetchAgendamentos() {
   const res = await fetch(`${API_BASE}/agendamento`);
-  return await res.json();
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || "Erro ao carregar agendamentos.");
+  return data;
 }
 
+// POST - Salvar agendamento
 export async function salvarAgendamento(agendamento) {
   const res = await fetch(`${API_BASE}/agendamento`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(agendamento),
   });
-  return await res.json();
+
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || "Erro ao salvar agendamento.");
+  return data;
 }
