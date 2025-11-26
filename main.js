@@ -1,6 +1,6 @@
 import express from "express";
 import Profissional from "./profissionais.js";
-import Agendamento from "./agendamentos.js";
+import Agendamento from "./agendamento.js";
 import sequelize from "./db.js";
 
 export const router = express.Router();
@@ -18,7 +18,7 @@ export async function testarConexao() {
 // ROTAS ----------------------------------------------
 
 // GET /agendamentos
-router.get("/agendamentos", async (req, res) => {
+router.get("/agendamento", async (req, res) => {
   try {
     const agendamentos = await Agendamento.findAll({
       include: [{ model: Profissional }],
@@ -32,7 +32,7 @@ router.get("/agendamentos", async (req, res) => {
 });
 
 // POST /agendamentos
-router.post("/agendamentos", async (req, res) => {
+router.post("/agendamento", async (req, res) => {
   const { nome, email, profissional, horarioSelecionado, data_agendamento } =
     req.body;
 
