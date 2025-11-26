@@ -28,7 +28,7 @@ app.use("/api", router);
 
 // QUANDO O USUÁRIO ACESSAR "/", ENVIA O index.html
 app.get("*", (req, res) => {
-  res.sendFile(path.join(frontPath, "index.html"));
+  res.sendFile(path.join(frontPath, "home.html"));
 });
 
 // Seed dos profissionais
