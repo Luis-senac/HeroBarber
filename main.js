@@ -1,7 +1,7 @@
 import express from "express";
-import Profissional from "profissionais.js";
-import sequelize from "db.js";
-import Agendamento from "agendamento.js"; // AGORA FUNCIONA
+import Profissional from "./profissionais.js";
+import sequelize from "./db.js";
+import Agendamento from "./agendamento.js"; // AGORA FUNCIONA
 
 export const router = express.Router();
 
@@ -39,15 +39,11 @@ router.post("/agendamento", async (req, res) => {
   const { nome, email, profissional, horarioSelecionado, data_agendamento } =
     req.body;
 
-  // Verificar dados obrigatórios
   if (!nome || !email || !profissional || !horarioSelecionado || !data_agendamento) {
     return res.status(400).json({ error: "Dados incompletos" });
   }
 
   try {
-    // Corrigir o formato da data
-    const dataFormatada = data_agendamento.split("T")[0];
-
     const profissionalEncontrado = await Profissional.findOne({
       where: { nome: profissional },
     });
@@ -60,8 +56,8 @@ router.post("/agendamento", async (req, res) => {
       nome_cliente: nome,
       email_cliente: email,
       profissional_id: profissionalEncontrado.id,
-      horarioSelecionado,
-      data_agendamento: dataFormatada,
+      horario_agendamento: horarioSelecionado,  // ← AQUI ESTÁ A CORREÇÃO
+      data_agendamento,
       status: "pendente",
     });
 
