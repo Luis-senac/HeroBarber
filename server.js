@@ -9,25 +9,25 @@ import Profissional from "./profissionais.js";
 
 const app = express();
 
-// CORREÇÃO IMPORTANTE
+// CORREÇÃO
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// PASTA DO FRONTEND
+// FRONT
 const frontPath = path.join(__dirname, "front");
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// SERVIR FRONTEND
+// SERVIR ARQUIVOS ESTÁTICOS
 app.use(express.static(frontPath));
 
-// API (backend)
+// API
 app.use("/api", router);
 
-// QUANDO O USUÁRIO ACESSAR "/", ENVIA O index.html
-app.get("*", (req, res) => {
+// CORREÇÃO AQUI ▶▶ APENAS "/" ENVIA HOME.HTML
+app.get("/", (req, res) => {
   res.sendFile(path.join(frontPath, "home.html"));
 });
 
