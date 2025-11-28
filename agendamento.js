@@ -1,6 +1,6 @@
 // agendamentos.js
 import { DataTypes } from "sequelize";
-import db from "db.js";
+import db from "./db.js";
 
 const Agendamento = db.define("agendamento", {
   nome_cliente: DataTypes.STRING,

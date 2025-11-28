@@ -21,7 +21,7 @@ export async function testarConexao() {
 // ROTAS ----------------------------------------------
 
 // GET /agendamentos
-router.get("/agendamento", async (req, res) => {
+router.get("agendamento", async (req, res) => {
   try {
     const agendamentos = await Agendamento.findAll({
       include: [{ model: Profissional }],
@@ -35,7 +35,7 @@ router.get("/agendamento", async (req, res) => {
 });
 
 // POST /agendamentos
-router.post("/agendamento", async (req, res) => {
+router.post("agendamento", async (req, res) => {
   const { nome, email, profissional, horarioSelecionado, data_agendamento } =
     req.body;
 
