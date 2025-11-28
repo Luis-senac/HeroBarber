@@ -11,7 +11,7 @@
 }
 
 body {
-    background-image: url("/assets/bkg.png");
+    background-image: url("assets/bkg.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

@@ -23,7 +23,7 @@ body.fade-in {
 
 /* ====== SEU CÓDIGO ORIGINAL ====== */
 body {
-  background: url('/assets/bkg.png') no-repeat center center fixed;
+  background: url('assets/bkg.png') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -82,7 +82,7 @@ main {
 }
 
 .campo input {
-  background: url('/assets/text-bar.png') no-repeat center center;
+  background: url('assets/text-bar.png') no-repeat center center;
   background-size: 100% 100%;
   border: none;
   outline: none;

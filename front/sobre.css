@@ -16,7 +16,7 @@ header {
 }
 
 body {
-  background-image: url(/assets/bkg-sobre.jpg);
+  background-image: url(assets/bkg-sobre.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

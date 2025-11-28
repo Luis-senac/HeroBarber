@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <img src="/assets/ADIMINISTRA-O-26-09-2025 (1).png" alt="Administração">
+    <img src="assets/ADIMINISTRA-O-26-09-2025 (1).png" alt="Administração">
   </header>
 
   <main>
@@ -19,7 +19,7 @@
         <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
         <button type="button" id="toggleSenha" class="btn-ver-senha" aria-label="Mostrar ou ocultar senha">
           <div class="icone-fundo">
-            <img id="iconeSenha" src="/assets/olho-fechado.png" alt="Ver senha">
+            <img id="iconeSenha" src="assets/olho-fechado.png" alt="Ver senha">
           </div>
         </button>
       </div>
@@ -39,8 +39,8 @@
       const mostrando = senhaInput.type === "text";
       senhaInput.type = mostrando ? "password" : "text";
       iconeSenha.src = mostrando
-        ? "/assets/olho-fechado.png"
-        : "/assets/olho-aberto.webp";
+        ? "assets/olho-fechado.png"
+        : "assets/olho-aberto.webp";
     });
 
     // Lista de emails válidos

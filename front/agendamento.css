@@ -6,7 +6,7 @@
 }
 
 body {
-  background-image: url(/assets/bkg.png);
+  background-image: url(assets/bkg.png);
   background-size: cover; /* Faz a imagem cobrir toda a área */
   background-repeat: no-repeat; /* Evita repetir a imagem */
   background-position: center; /* Centraliza a imagem */

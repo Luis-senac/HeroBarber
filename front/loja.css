@@ -92,7 +92,7 @@ main {
 
     /* PROPRIEDADES DA IMAGEM DE FUNDO: */
     /* ⚠️ VERIFIQUE SE O CAMINHO DA IMAGEM ESTÁ CORRETO ⚠️ */
-    background-image: url('/assets/pxfuel2.png'); 
+    background-image: url('assets/pxfuel2.png'); 
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat; 

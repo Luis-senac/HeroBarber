@@ -28,7 +28,7 @@ app.use("/api", router);
 
 // CORREÇÃO AQUI ▶▶ APENAS "/" ENVIA HOME.HTML
 app.get("/", (req, res) => {
-  res.sendFile(path.join(frontPath, "/home.html"));
+  res.sendFile(path.join(frontPath, "home.html"));
 });
 
 // Seed dos profissionais
