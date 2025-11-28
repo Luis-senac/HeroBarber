@@ -1,7 +1,7 @@
 import express from "express";
-import Profissional from "./profissionais.js";
-import sequelize from "./db.js";
-import Agendamento from "./agendamento.js"; // AGORA FUNCIONA
+import Profissional from "profissionais.js";
+import sequelize from "db.js";
+import Agendamento from "agendamento.js"; // AGORA FUNCIONA
 
 export const router = express.Router();
 

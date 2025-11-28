@@ -3,9 +3,9 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import path from "path";
 import { fileURLToPath } from "url";
-import { router, testarConexao } from "./main.js";
-import db from "./db.js";
-import Profissional from "./profissionais.js";
+import { router, testarConexao } from "main.js";
+import db from "db.js";
+import Profissional from "profissionais.js";
 
 const app = express();
 
