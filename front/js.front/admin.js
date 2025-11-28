@@ -35,8 +35,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     let dataFormatada = '-';
 
     if (dataISO) {
-        const d = new Date(dataISO);
-        dataFormatada = `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth()+1).padStart(2, '0')}/${d.getFullYear()}`;
+        if (dataISO.includes("-")) {
+            // Formato YYYY-MM-DD --> converter manualmente
+            const [ano, mes, dia] = dataISO.split("-");
+            dataFormatada = `${dia}/${mes}/${ano}`;
+        } else {
+            dataFormatada = dataISO; // já está em DD/MM/AAAA
+        }
+        
     }
 
     return {
