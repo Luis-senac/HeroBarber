@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   const form = document.getElementById("formAgendamento");
   const btnVerMais = document.getElementById("btnVerMais");
   const horariosAdicionais = document.getElementById("horariosAdicionais");
@@ -6,18 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const campoHorario = document.getElementById("horarioSelecionado");
   const erroProfissional = document.getElementById("erroProfissional");
 
-  // Detecta ambiente (localhost ou Render)
   const API_BASE =
     window.location.hostname === "localhost"
       ? "http://localhost:3000"
       : "https://streetbarber.onrender.com";
 
-  // Botão "ver mais" para horários adicionais
+  // Botão ver mais
   btnVerMais.addEventListener("click", () => {
     horariosAdicionais.classList.toggle("horarios-escondidos");
-    btnVerMais.textContent = horariosAdicionais.classList.contains(
-      "horarios-escondidos"
-    )
+    btnVerMais.textContent = horariosAdicionais.classList.contains("horarios-escondidos")
       ? "ver mais"
       : "ver menos";
   });
@@ -31,31 +29,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Validação do profissional selecionado
+  // validação profissional
   window.validarSelecao = (input) => {
     const lista = ["Thiago Mendes", "Henrique Souza", "Lucas Silva"];
     if (!lista.includes(input.value)) {
       erroProfissional.style.display = "block";
       input.value = "";
-    } else erroProfissional.style.display = "none";
+    } else {
+      erroProfissional.style.display = "none";
+    }
   };
 
-  // Submissão do formulário
+  // Envio do formulário
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
     const nome = document.getElementById("nome").value.trim();
     const email = document.getElementById("email").value.trim();
     const profissional = document.getElementById("profissional").value.trim();
     const horarioSelecionado = campoHorario.value.trim();
     const data_agendamento = document.getElementById("data").value;
 
-    if (
-      !nome ||
-      !email ||
-      !profissional ||
-      !horarioSelecionado ||
-      !data_agendamento
-    ) {
+    if (!nome || !email || !profissional || !horarioSelecionado || !data_agendamento) {
       alert("Por favor, preencha todos os campos.");
       return;
     }
@@ -83,7 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         alert("❌ " + data.error);
       }
-    } catch {
+
+    } catch (error) {
       alert("Erro ao enviar. Verifique sua conexão com o servidor.");
     }
   });
