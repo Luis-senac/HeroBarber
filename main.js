@@ -39,11 +39,15 @@ router.post("/agendamento", async (req, res) => {
   const { nome, email, profissional, horarioSelecionado, data_agendamento } =
     req.body;
 
+  // Verificar dados obrigatórios
   if (!nome || !email || !profissional || !horarioSelecionado || !data_agendamento) {
     return res.status(400).json({ error: "Dados incompletos" });
   }
 
   try {
+    // Corrigir o formato da data
+    const dataFormatada = data_agendamento.split("T")[0];
+
     const profissionalEncontrado = await Profissional.findOne({
       where: { nome: profissional },
     });
@@ -57,7 +61,7 @@ router.post("/agendamento", async (req, res) => {
       email_cliente: email,
       profissional_id: profissionalEncontrado.id,
       horarioSelecionado,
-      data_agendamento,
+      data_agendamento: dataFormatada,
       status: "pendente",
     });
 
