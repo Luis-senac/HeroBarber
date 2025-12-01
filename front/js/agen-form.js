@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // FUNÇÃO QUE BUSCA AGENDAMENTOS E MOSTRA NO HTML
     async function carregarAgendamentos() {
       try {
-        const res = await fetch(`${API_BASE}/agendamento`); // GET
+        const res = await fetch(`${API_BASE}/api/agendamento`); // GET
         const lista = await res.json();
 
         const container = document.getElementById("lista-agendamentos");
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const res = await fetch(`${API_BASE}/agendamento`, {
+      const res = await fetch(`${API_BASE}/api/agendamento`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -1,3 +1,5 @@
+import { fetchAgendamentos } from "./api.js";
+
 document.addEventListener("DOMContentLoaded", async function () {
   // === 1. CAPTURA DE ELEMENTOS DO DOM ===
   const corpoCalendario = document.getElementById("corpo-calendario");
