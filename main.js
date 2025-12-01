@@ -56,7 +56,8 @@ router.post("/agendamento", async (req, res) => {
       nome_cliente: nome,
       email_cliente: email,
       profissional_id: profissionalEncontrado.id,
-      horario_agendamento: horarioSelecionado,  // ← AQUI ESTÁ A CORREÇÃO
+      horarioSelecionado: horarioSelecionado,
+  // ← AQUI ESTÁ A CORREÇÃO
       data_agendamento,
       status: "pendente",
     });
