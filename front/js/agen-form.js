@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("formAgendamento");
   const btnVerMais = document.getElementById("btnVerMais");
@@ -9,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const API_BASE =
     window.location.hostname === "localhost"
       ? "http://localhost:3000"
-      : "https://streetbarber.onrender.com";
+      : "https://herobarber.onrender.com";
 
   // Botão ver mais
   btnVerMais.addEventListener("click", () => {

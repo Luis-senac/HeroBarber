@@ -2,7 +2,7 @@
 const API_BASE =
   window.location.hostname === "localhost"
     ? "http://localhost:3000"
-    : "https://streetbarber.onrender.com";
+    : "https://herobarber.onrender.com";
 
 // GET - Buscar agendamentos
 export async function fetchAgendamentos() {
