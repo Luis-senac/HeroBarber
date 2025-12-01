@@ -6,7 +6,7 @@ const API_BASE =
 
 // GET - Buscar agendamentos
 export async function fetchAgendamentos() {
-  const res = await fetch(`${API_BASE}/agendamento`);
+  const res = await fetch(`${API_BASE}/api/agendamento`);
   const data = await res.json();
   if (!res.ok) throw new Error(data.error || "Erro ao carregar agendamentos.");
   return data;
@@ -14,7 +14,7 @@ export async function fetchAgendamentos() {
 
 // POST - Salvar agendamento
 export async function salvarAgendamento(agendamento) {
-  const res = await fetch(`${API_BASE}/agendamento`, {
+  const res = await fetch(`${API_BASE}/api/agendamento`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(agendamento),
